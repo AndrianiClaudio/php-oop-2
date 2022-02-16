@@ -1,9 +1,12 @@
 <?php
+
+require_once './classes/CreditCard.php';
 class User
 {
-  public $name;
-  public $lastname;
-  public $username;
+  protected $name;
+  protected $lastname;
+  protected $username;
+  protected $CreditCards;
   function __construct(string $name, string $lastname, string $username)
   {
     $this->name = $name;
@@ -63,5 +66,36 @@ class User
   public function setUsername($username)
   {
     $this->username = $username;
+  }
+
+
+  // show name and lastname
+  public function getFullname()
+  {
+    return $this->getName() . ' ' . $this->getLastName();
+  }
+
+
+  /**
+   * Get the value of CreditCards
+   */
+  public function getCreditCards()
+  {
+    return $this->CreditCards;
+  }
+
+  /**
+   * Set the value of CreditCards
+   *
+   * @return  void
+   */
+  public function setCreditCards(CreditCard $CreditCards)
+  {
+    $this->CreditCards = $CreditCards;
+  }
+  // registra carta
+  public function setCreditCard(CreditCard $c)
+  {
+    $this->setCreditCards($c);
   }
 }

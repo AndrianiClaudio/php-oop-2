@@ -13,8 +13,14 @@
         'lastname' => 'Andriani',
         'username' => 'clod'
       ];
+      // crea nuovo user
       $root = new User($user_root_data['name'], $user_root_data['lastname'], $user_root_data['username']);
-      echo $root->getName() . ' ' . $root->getLastname() . ' -> ' . $root->getUsername();
+      // echo $root->getName() . ' ' . $root->getLastname() . ' -> ' . $root->getUsername();
+
+      $c = new CreditCard($root->getFullname(), str_replace(' ', '', '123 4435 0192 1521'), 'Intesa San Paolo');
+      $root->setCreditCard($c);
+      var_dump($root->getCreditCards());
+      // si prova la associazione di una creditcard per user
       ?>
     </div>
   </main>
