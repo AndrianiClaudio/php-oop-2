@@ -1,17 +1,15 @@
 <?php
 
-require_once './classes/CreditCard.php';
+require_once __DIR__ . '/CreditCard.php';
 class User
 {
   protected $name;
   protected $lastname;
-  protected $username;
-  protected $CreditCards;
-  function __construct(string $name, string $lastname, string $username)
+  protected $creditCards;
+  function __construct(string $name, string $lastname)
   {
     $this->name = $name;
     $this->lastname = $lastname;
-    $this->username = $username;
   }
 
   /**
@@ -50,24 +48,6 @@ class User
     $this->lastname = $lastname;
   }
 
-  /**
-   * Get the value of username
-   */
-  public function getUsername()
-  {
-    return $this->username;
-  }
-
-  /**
-   * Set the value of username
-   *
-   * @return  void
-   */
-  public function setUsername($username)
-  {
-    $this->username = $username;
-  }
-
 
   // show name and lastname
   public function getFullname()
@@ -77,25 +57,19 @@ class User
 
 
   /**
-   * Get the value of CreditCards
+   * Get the value of creditCards
    */
   public function getCreditCards()
   {
-    return $this->CreditCards;
+    return $this->creditCards;
   }
-
   /**
-   * Set the value of CreditCards
+   * Set the value of creditCards
    *
    * @return  void
    */
-  public function setCreditCards(CreditCard $CreditCards)
+  public function setCreditCards(CreditCard $creditCards)
   {
-    $this->CreditCards = $CreditCards;
-  }
-  // registra carta
-  public function setCreditCard(CreditCard $c)
-  {
-    $this->setCreditCards($c);
+    $this->creditCards = $creditCards;
   }
 }
