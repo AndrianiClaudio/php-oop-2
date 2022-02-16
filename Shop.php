@@ -25,11 +25,11 @@
 class Shop
 {
   public $name; // nome shop
-  public $products; // products extends shop?
-  function __construct(string $name, string $location)
+  // public $products; // products extends shop?
+  function __construct(string $name, array $products)
   {
-    $this->name = $name;
-    $this->location = $location;
+    $this->name =  $name;
+    $this->products = $products;
   }
 
   // getter & Setter
@@ -41,27 +41,56 @@ class Shop
   {
     $this->name = $name;
   }
-  public function getLocation()
-  {
-    return $this->product;
-  }
-  public function setLocation(string $location)
-  {
-    $this->lcoation = $location;
-  }
   public function getProducts()
   {
-    return $this->product;
+    $tmp = [];
+    var_dump($this->getProducts());
+    foreach ($this->getProducts()  as $prod) {
+      $tmp[] =  $prod->getName();
+    }
+    return $tmp;
   }
-  public function setProduct(string $product)
+  public function setProducts(array $products)
   {
-    $this->product = $product;
+    $this->products = $products;
+  }
+}
+
+class Product extends Shop
+{
+  public $name;
+  public $price;
+
+  // public $producer;
+  // public $available;
+  // public $minAge;
+  // public $text;
+  function __construct($name, $price)
+  {
+    $this->name = $name;
+    $this->price = $price;
+  }
+
+  // function getProductName()
+  // {
+  //   return $this->name;
+  // }
+
+  function getProductPrice()
+  {
+    return $this->price;
   }
 }
 
 
-class Product
-{
-}
+$gocciole = new Product('Le Gocciole', 3.9);
+$latteIntero = new Product('Latte intero', 1.8);
+$myshop = new Shop('Claudio-Shop', [$gocciosle, $latteIntero]);
+// var_dump($myshop);
 
-// $myshop = new Shop('My Shop', [/* array di prodotti */]);
+$myshop->getProducts();
+?>
+
+<?php
+
+?>
