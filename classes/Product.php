@@ -1,16 +1,64 @@
 <?php
 class Product
 {
+  protected $id;
+  protected $code;
   protected $name;
   protected $price;
   protected $brand;
-  protected $quantity;
+  protected $photo;
+  protected $description;
+  protected $type;
 
-  function __construct(string $name, float $price, string $brand)
+
+  public function __construct(int $id, string $code, string $name, float $price, string $brand, string $type)
   {
+    $this->id = $id;
+    $this->code = $code;
     $this->name = $name;
     $this->price = $price;
     $this->brand = $brand;
+    $this->type = $type;
+  }
+
+  /**
+   * Get the value of id
+   */
+  public function getId()
+  {
+    return $this->id;
+  }
+
+  /**
+   * Set the value of id
+   *
+   * @return  self
+   */
+  public function setId($id)
+  {
+    $this->id = $id;
+
+    return $this;
+  }
+
+  /**
+   * Get the value of code
+   */
+  public function getCode()
+  {
+    return $this->code;
+  }
+
+  /**
+   * Set the value of code
+   *
+   * @return  self
+   */
+  public function setCode($code)
+  {
+    $this->code = $code;
+
+    return $this;
   }
 
   /**
@@ -24,11 +72,13 @@ class Product
   /**
    * Set the value of name
    *
-   * @return
+   * @return  self
    */
   public function setName($name)
   {
     $this->name = $name;
+
+    return $this;
   }
 
   /**
@@ -42,11 +92,13 @@ class Product
   /**
    * Set the value of brand
    *
-   * @return
+   * @return  self
    */
   public function setBrand($brand)
   {
     $this->brand = $brand;
+
+    return $this;
   }
 
   /**
@@ -58,20 +110,74 @@ class Product
   }
 
   /**
-   * Get the value of quantity
+   * Set the value of price
+   *
+   * @return  self
    */
-  public function getQuantity()
+  public function setPrice($price)
   {
-    return $this->quantity;
+    $this->price = $price;
+
+    return $this;
   }
 
   /**
-   * Set the value of quantity
-   *
-   * @return  void
+   * Get the value of photo
    */
-  public function setQuantity($quantity)
+  public function getPhoto()
   {
-    $this->quantity = $quantity;
+    return $this->photo;
+  }
+
+  /**
+   * Set the value of photo
+   *
+   * @return  self
+   */
+  public function setPhoto($photo)
+  {
+    $this->photo = $photo;
+
+    return $this;
+  }
+
+  /**
+   * Get the value of description
+   */
+  public function getDescription()
+  {
+    return $this->description;
+  }
+
+  /**
+   * Set the value of description
+   *
+   * @return  self
+   */
+  public function setDescription($description)
+  {
+    $this->description = $description;
+
+    return $this;
+  }
+
+  /**
+   * Get the value of type
+   */
+  public function getType()
+  {
+    return $this->type;
+  }
+
+  /**
+   * Set the value of type
+   *
+   * @return  self
+   */
+  public function setType($type)
+  {
+    $this->type = $type;
+
+    return $this;
   }
 }

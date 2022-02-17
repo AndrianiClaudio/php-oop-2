@@ -3,33 +3,54 @@ require_once __DIR__ . '/User.php';
 class premium extends User
 {
 
-  // plane pensato cosi: magari ci sono piu livelli di utente premium base/premium pro
-  protected $plane;
+  protected $level;
+  protected $sale;
   protected $points;
-  protected $saleScore;
+  protected $dateStart;
+  protected $dateEnd;
 
-  public function __construct($name, $lastname, string $plane)
+  public function __construct($id, $name, $lastname, string $level)
   {
-    parent::__construct($name, $lastname);
-    $this->plane = $plane;
+    parent::__construct($id, $name, $lastname);
+    $this->level = $level;
   }
 
   /**
-   * Get the value of saleScore
+   * Get the value of level
    */
-  public function getSaleScore()
+  public function getLevel()
   {
-    return $this->saleScore;
+    return $this->level;
   }
 
   /**
-   * Set the value of saleScore
+   * Set the value of level
    *
    * @return  self
    */
-  public function setSaleScore($saleScore)
+  public function setLevel($level)
   {
-    $this->saleScore = $saleScore;
+    $this->level = $level;
+
+    return $this;
+  }
+
+  /**
+   * Get the value of sale
+   */
+  public function getSale()
+  {
+    return $this->sale;
+  }
+
+  /**
+   * Set the value of sale
+   *
+   * @return  self
+   */
+  public function setSale($sale)
+  {
+    $this->sale = $sale;
 
     return $this;
   }
@@ -55,21 +76,41 @@ class premium extends User
   }
 
   /**
-   * Get the value of plane
+   * Get the value of dateStart
    */
-  public function getPlane()
+  public function getDateStart()
   {
-    return $this->plane;
+    return $this->dateStart;
   }
 
   /**
-   * Set the value of plane
+   * Set the value of dateStart
    *
    * @return  self
    */
-  public function setPlane($plane)
+  public function setDateStart($dateStart)
   {
-    $this->plane = $plane;
+    $this->dateStart = $dateStart;
+
+    return $this;
+  }
+
+  /**
+   * Get the value of dateEnd
+   */
+  public function getDateEnd()
+  {
+    return $this->dateEnd;
+  }
+
+  /**
+   * Set the value of dateEnd
+   *
+   * @return  self
+   */
+  public function setDateEnd($dateEnd)
+  {
+    $this->dateEnd = $dateEnd;
 
     return $this;
   }
